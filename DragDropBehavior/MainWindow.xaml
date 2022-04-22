@@ -1,0 +1,38 @@
+﻿<Window x:Class="DragDropBehavior.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:shapes="clr-namespace:DragDropBehavior.Shapes"
+		xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+		xmlns:behavior="clr-namespace:DragDropBehavior.Behavior"
+        xmlns:local="clr-namespace:DragDropBehavior"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+	<Canvas AllowDrop="True">
+
+		<shapes:Rectangle Canvas.Left="150"
+						  Canvas.Top="150"
+						  Width="100"
+						  Height="100"/>
+
+		<shapes:Ellipse Canvas.Left="350"
+						Canvas.Top="150"
+						Width="100"
+						Height="100"/>
+
+		<!--// Not Implement IMyShape //-->
+		<Rectangle Canvas.Left="550"
+				   Canvas.Top="150"
+				   Width="100"
+				   Height="100"
+				   Fill="Green"/>
+
+		<b:Interaction.Behaviors>
+			<behavior:DragDropBehavior InnerType="{x:Type shapes:IMyShape}"/>
+		</b:Interaction.Behaviors>
+
+	</Canvas>
+
+</Window>
